@@ -1,5 +1,5 @@
 {
-  "name": "@abigpotostew/matter-js-serialize",
+  "name": "matter-js-serialize",
   "version": "0.19.5",
   "description": "Serialize and deserialize matter-js worlds",
   "types": "dist/index.d.ts",
@@ -12,15 +12,16 @@
     "require": "./dist/index.cjs",
     "default": "./dist/index.modern.js"
   },
+  "private": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "microbundle",
-    "publish-lib": "npm run build && npm publish",
-    "publish-beta": "npm run build && npm publish --tag beta",
-    "publish-dryrun": "npm run build && npm publish --dry-run"
+    "publish-lib": "npm run build && npm publish --access public",
+    "publish-beta": "npm run build && npm publish --tag beta --access public",
+    "publish-dryrun": "npm run build && npm publish --dry-run --access public"
   },
   "repository": {
     "type": "git",
