@@ -6,6 +6,7 @@ export const deserializeWorld = (serialized: string): Matter.World => {
   return parseRefJSON(serialized)
 }
 
+/** @internal */
 function parseRefJSON(json: string) {
   let objToPath = new Map();
   let pathToObj = new Map();

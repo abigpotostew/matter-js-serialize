@@ -2,14 +2,22 @@
   "name": "@abigpotostew/matter-js-serialize",
   "version": "0.19.5",
   "description": "Serialize and deserialize matter-js worlds",
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "/dist"
   ],
+  "source": "src/index.ts",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "microbundle",
     "publish-lib": "npm run build && npm publish",
     "publish-beta": "npm run build && npm publish --tag beta",
     "publish-dryrun": "npm run build && npm publish --dry-run"
@@ -29,11 +37,10 @@
     "url": "https://github.com/abigpotostew/matter-js-serialize/issues"
   },
   "homepage": "https://github.com/abigpotostew/matter-js-serialize#readme",
-  "dependencies": {
-  },
   "devDependencies": {
     "@types/matter-js": "^0.19.5",
-    "typescript": "5.3.2",
-    "matter-js": "^0.19.0"
+    "matter-js": "^0.19.0",
+    "microbundle": "^0.15.1",
+    "typescript": "5.3.2"
   }
 }
