@@ -43,7 +43,7 @@ const compositeToSerializable = <T extends Composite>(composite: T, data: Serial
     ...composite,
     // filter out 'cached' field. It will be rebuilt by matter-js.
     cache: {},
-    parent: composite.parent?.id ?? null,
+    parent: composite.parent ? compositeToSerializable(composite.parent, data) : null,
     bodies,
     constraints,
     composites: composite.composites.map((c) => compositeToSerializable(c, data))
