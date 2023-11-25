@@ -59,6 +59,14 @@ A serialized world is a JSON string and can be large for large world. This libra
 
 Any compression lib can be used on the result of `serializeWorld`. I recommend [lz-string](https://github.com/pieroxy/lz-string).
 
+```typescript
+import { serializeWorld } from 'matter-js-serialize';
+import { compress, decompress } from 'lz-string';
+
+const serializedWorld = serializeWorld(engine.world);
+const compressedWorld = compress(serializedWorld);
+const decompressedWorld = decompress(compressedWorld);
+```
 
 ## Development
 
