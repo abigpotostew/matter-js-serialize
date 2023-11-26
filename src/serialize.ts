@@ -35,7 +35,7 @@ const compositeToSerializable = <T extends Composite>(composite: T, data: Serial
   const out = {} as CompositeSerializable;
   data.compositesById[composite.id] = out
 
-  const bodies = composite.bodies.map((b) => bodyToSerializable(b, data))
+  const bodies = composite.bodies ? composite.bodies.map((b) => bodyToSerializable(b, data)) : null
   // delete/filter out mouse constraint from world because it doesn't deserialize properly into a constraint.
   const constraints = composite.constraints.filter((c: Constraint) => c.label !== 'Mouse Constraint').map((c) => constraintToSerializable(c, data))
   //recurse on composite children

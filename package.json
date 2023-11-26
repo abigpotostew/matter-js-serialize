@@ -1,6 +1,6 @@
 {
   "name": "matter-js-serialize",
-  "version": "0.19.7",
+  "version": "0.19.8",
   "description": "Serialize and deserialize matter-js worlds",
   "types": "dist/index.d.ts",
   "files": [
