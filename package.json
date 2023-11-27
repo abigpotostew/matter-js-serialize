@@ -1,6 +1,6 @@
 {
   "name": "matter-js-serialize",
-  "version": "0.19.8",
+  "version": "0.19.9",
   "description": "Serialize and deserialize matter-js worlds",
   "types": "dist/index.d.ts",
   "files": [
@@ -19,9 +19,9 @@
   "scripts": {
     "test": "jest",
     "build": "microbundle",
-    "publish-lib": "npm run build && npm publish --access public",
-    "publish-beta": "npm run build && npm publish --tag beta --access public",
-    "publish-dryrun": "npm run build && npm publish --dry-run --access public"
+    "publish-lib": "npm run test && npm run build && npm publish --access public",
+    "publish-beta": "npm run test && npm run build && npm publish --tag beta --access public",
+    "publish-dryrun": "npm run test && npm run build && npm publish --dry-run --access public"
   },
   "repository": {
     "type": "git",

@@ -6,7 +6,7 @@ import {
   SerializeData,
   Vertice
 } from "./internal-types";
-import {Body, Composite, Constraint} from "matter-js";
+import {Body, Composite, Composites, Constraint} from "matter-js";
 
 /**
  * Serialize a Matter.World to a string. Filtering out the mouse constraint.
@@ -37,7 +37,7 @@ const compositeToSerializable = <T extends Composite>(composite: T, data: Serial
 
   const bodies = composite.bodies ? composite.bodies.map((b) => bodyToSerializable(b, data)) : null
   // delete/filter out mouse constraint from world because it doesn't deserialize properly into a constraint.
-  const constraints = composite.constraints.filter((c: Constraint) => c.label !== 'Mouse Constraint').map((c) => constraintToSerializable(c, data))
+  const constraints = composite.constraints?.filter((c: Constraint) => c.label !== 'Mouse Constraint').map((c) => constraintToSerializable(c, data))
   //recurse on composite children
   Object.assign(out, {
     ...composite,
